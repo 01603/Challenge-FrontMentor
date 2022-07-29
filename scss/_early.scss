@@ -1,0 +1,53 @@
+@use 'variables';
+@use 'mixins';
+
+.early-access{
+    padding: 58px 62px 69px 38px;
+    background-color: variables.$Desaturated-Blue;
+    color: variables.$White;
+    height: 360px;
+    @include mixins.section-desktop-view(244px);
+    &__title{
+        text-align: center;
+        font-family: variables.$Headings-font;
+        font-size: 1.1em;
+        word-spacing: 1px;
+        margin-bottom: 26px;
+    }
+    &__description{
+        text-align: center;
+        font-size: 0.9em;
+        margin-bottom: 26px;
+        line-height: 20px;
+        padding: 0 0;
+    }
+    &__form{
+       @include mixins.forms;
+    }
+}
+
+@media (min-width: 1440px){
+    .early-access{
+        padding: 58px 62px 20px 38px;
+        &__title{
+            text-align: left;
+            word-spacing: 2px;
+            font-size: 1.62em;
+            margin: 0 0 18px;
+        }
+        &__description{
+            text-align: left;
+            font-size: 0.9em;
+            width: 440px;
+        }
+        &__form{
+            width: 400px;
+            height: 95px;
+            margin-bottom: 50px;
+            input[type="submit"]{
+                width: 50%;
+                font-size: 0.8em;
+            }
+        }
+    }
+}

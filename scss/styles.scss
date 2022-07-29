@@ -1,0 +1,195 @@
+@use 'variables';
+@use 'initial';
+@use 'mixins';
+@use 'card';
+@use 'early';
+@use 'footer';
+
+.main-container{
+    width: 375px;
+    margin: auto;
+    @include mixins.desktop-view;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 24px 0;
+    margin-bottom: 100px;
+    &__logo{
+        width: 80px;
+        @include mixins.desktop-view(170px);
+    }
+    &__nav-container{
+        display: flex;
+        width: 167px;
+        font-size: 0.8em;
+        font-weight: 400;
+        justify-content: space-between;
+        @include mixins.desktop-view(274px, unset, 1em);
+        li{
+            list-style: none;
+        }
+        a{
+            color: #000;
+            text-decoration: none;
+            &:hover{
+                color: variables.$Bright-Blue;
+            }
+        }
+    }
+}
+
+
+.header{
+    padding: 0px 24px 182px;
+    background: {
+        image: url(../images/bg-curve-mobile.svg);
+        repeat: no-repeat;
+        position-y: bottom;
+    } ;
+
+    @include mixins.section-desktop-view(38px, true);
+
+    &__illustration{
+        width: 100%;
+        margin-bottom: 40px;
+        @include mixins.illustration-desktop-view;
+    }
+    .header-content{
+        &__title{
+            font-size: 1.5em;
+            font-family: variables.$Headings-font;
+            text-align: center;
+            line-height: 35px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        &__description{
+            text-align: center;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+        }
+        &__form{
+            @include mixins.forms;
+        }
+    }
+}
+@media (min-width: 1440px){
+    .header{
+        height: 720px;
+        padding: 0px 24px 182px;
+        background: {
+            image: url(../images/bg-curve-desktop.svg);
+        }
+        .header-content{
+            width: 590px;
+            &__title{
+                text-align: left;
+                font-size: 2.5em;
+                line-height: 60px;
+            }
+            &__description{
+                text-align: left;
+                font-size: 1.15em;
+            }
+            &__form{
+                flex-direction: row;
+                gap: 15px;
+                width: 540px;
+                height: 50px;
+            }
+            &__form input[type="text"]{
+                flex-grow: 2;
+            }
+            &__form input[type="submit"]{
+                flex-grow: 1;
+            }
+        }
+        
+    }
+}
+
+.details{
+    background-color: variables.$Light-Grayish-Blue;
+    height: 900px;
+    padding: 0 24px;
+    @include mixins.section-desktop-view(65px, true);
+    &__illustration{
+        width: 100%;
+        margin-bottom: 80px;
+        @include mixins.illustration-desktop-view;
+    }
+    .details-content{
+        &__title{
+            font-size: 1em;
+            font-family: variables.$Headings-font;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        &__paragraph{
+            color: variables.$Desaturated-Blue;
+            margin-bottom: 25px;
+            line-height: 20px;
+            font-size: 0.86em;
+        }
+        &__link{
+            display: flex;
+            width: 133px;
+            margin:0px auto 40px;
+            color: variables.$Moderate-Cyan;
+            border-bottom: 2px solid variables.$Moderate-Cyan;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 0.8em;
+            }
+        }
+}
+
+
+@media (min-width: 1440px){
+    .details{
+        height: 677px;
+        &__illustration{
+            width: 550px;
+        }
+        .details-content{
+            width: 656px;
+
+            &__title{
+                text-align: left;
+                font-size: 2.5em;
+            }
+            &__paragraph{
+                width: 520px;
+                line-height: 25px;
+                font-size: 1em;
+                margin-bottom: 10px;
+            }
+            &__link{
+                margin: 5px 0 46px;
+                text-align: left;
+                justify-content: flex-start;
+            }
+        }
+        
+    }
+}
+
+
+
+
+
+
+
+
+.attribution {
+    margin: 20px 0;
+    font-size: 12px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
